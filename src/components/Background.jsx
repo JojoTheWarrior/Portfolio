@@ -1,8 +1,9 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 
 
 const Background = () => {
   const canvasRef = useRef(null);
+  let scroll = 0
 
   useEffect(() => {    
     // initializing canvas
@@ -11,50 +12,31 @@ const Background = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // initilizing bouncing dots
-    const N = 15;
-    let dots = Array.from({ length: N }).map(() => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      dx: 4*Math.random() - 2,
-      dy: 4*Math.random() - 2
-    }));
+    const getRandomInt = (max) => Math.floor(Math.random() * max);
+
+    // initializing stars
+    const N = 50
+    const stars = Array.from({ length: 2 }, () => 
+      Array.from({ length: N }, () => [getRandomInt(canvas.width), getRandomInt(canvas.height)])
+    );
 
     const draw = (ctx) => {
-      ctx.fillStyle = 'lightblue';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // black background
+      ctx.fillStyle = 'black'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      // drawing each dot
-      dots.forEach(dot => {
-        // drawing the circle
+      stars[0].forEach((star) => {
         ctx.beginPath();
-        ctx.arc(dot.x, dot.y, 10, 0, Math.PI * 2, false);
-        ctx.fillStyle = 'red';
+        ctx.arc(star[0], Math.abs((star[1] + 10*scroll) % canvas.height), 5, 0, 2*Math.PI)
+        ctx.fillStyle = 'white';
         ctx.fill();
-        ctx.closePath();
-
-        dot.x += dot.dx;
-        dot.y += dot.dy;
-        
-        if (dot.x + 5 > canvas.width || dot.x - 5 < 0) dot.dx *= -1;
-        if (dot.y + 5 > canvas.height || dot.y - 5 < 0) dot.dy *= -1;
       });
-
-      ctx.lineWidth = 5;
-      // drawing the connections
-      for (let i = 0; i < N; i++){
-        for (let j = 0; j < N; j++){
-          let dst = Math.sqrt(Math.pow(dots[i].x - dots[j].x, 2) + Math.pow(dots[i].y - dots[j].y, 2));
-          
-          ctx.strokeStyle = `rgba(125, 30, 30, ${(Math.max(100 - dst, 0) / 100.0)})`;
-
-          // drawing the line
-          ctx.beginPath();
-          ctx.moveTo(dots[i].x, dots[i].y);
-          ctx.lineTo(dots[j].x, dots[j].y);
-          ctx.stroke();
-        }
-      }
+      stars[1].forEach((star) => {
+        ctx.beginPath();
+        ctx.arc(star[0], Math.abs((star[1] + 5*scroll) % canvas.height), 5, 0, 2*Math.PI)
+        ctx.fillStyle = 'white';
+        ctx.fill();
+      });
     };
 
     // the drawing loop
@@ -71,12 +53,23 @@ const Background = () => {
     }
     window.addEventListener('resize', handleResize);
 
+    // handling scroll
+    const handleScroll = (event) => {
+      scroll += event.deltaY
+    }
+    window.addEventListener('wheel', handleScroll);
+
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('wheel', handleScroll);
     }
   }, [])
 
-  return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10"/>
+  return (
+    <div className="fixed bg-black top-0 left-0 w-full h-full -z-10">
+      <canvas ref={canvasRef} className=""/>
+    </div>
+  )
 }
 
 export default Background

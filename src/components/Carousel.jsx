@@ -6,13 +6,17 @@ const Carousel = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
 
-    canvas.width = window.innerWidth;
-    canvas.height= window.innerHeight;
+    // 1413 by 639
+    canvas.width = window.innerWidth * 0.92
+    canvas.height = window.innerHeight * 0.92
+    let PAD = window.innerHeight * 0.02
+
+    console.log(canvas.height);
 
     const draw = (ctx) => {
         ctx.beginPath();
-        ctx.moveTo(20, 20);
-        ctx.bezierCurveTo(20, 100, 200, 100, 200, 20);
+        ctx.moveTo(PAD, canvas.height*200/639);
+        ctx.bezierCurveTo(PAD+canvas.width*471/1413, canvas.height*50/639, PAD+canvas.width*942/1413, canvas.height*700/639, PAD+canvas.width*1413/1413, canvas.height*300/639);
         ctx.stroke();
     }
 
@@ -24,8 +28,9 @@ const Carousel = () => {
     
       // handling resize
       const handleResize = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth * 0.92;
+        canvas.height = window.innerHeight * 0.92;
+        PAD = window.innerHeight * 0.02;
       }
       window.addEventListener('resize', handleResize);
     
@@ -35,7 +40,11 @@ const Carousel = () => {
   }, [])
 
   return (
-    <canvas ref={canvasRef} className=""/>
+    <div className='w-full'>
+        <div className="h-100vh bg-palette-lapis m-4vh">
+            <canvas ref={canvasRef} className=""/>
+        </div>
+    </div>
   )
 }
 
