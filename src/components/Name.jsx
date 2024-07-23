@@ -1,14 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import logo from '../assets/images/logo.png';
 import logo_bg from '../assets/images/logo_bg.png';
 
 const Name = () => {
     const [sliderValue, setSliderValue] = useState(50);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     const handleSliderChange = (event) => {
         setSliderValue(event.target.value);
-        console.log(sliderValue)
     }
+
+    useEffect(() => {
+        const handleWindowResize = () => {
+            setWindowWidth(window.innerWidth);
+        }
+        window.addEventListener('resize', handleWindowResize);
+        return () => { window.removeEventListener('resize', handleWindowResize); }
+    }, []);
 
     return (
     <div className="relative w-full h-25vh mt-25vh flex items-center justify-center z-5">
@@ -18,7 +26,7 @@ const Name = () => {
                 height: 1vh;
                 background: white;
                 outline: none;
-                opacity: 0.2;
+                opacity: 0.7;
             }
 
             .slider::-webkit-slider-thumb {
@@ -64,8 +72,8 @@ const Name = () => {
             onChange={handleSliderChange}
             className="absolute slider bg-gray-300 outline-none z-20"
             style={{
-                width: '555.492px',
-                bottom: '104.29px',
+                width: `${window.innerWidth * 555.492 / 1600}px`,
+                bottom: `${window.innerWidth * 104.29 / 1600}px`,
             }}
         />
         {/* Joshua Wang / JojoTheWarrior */}
