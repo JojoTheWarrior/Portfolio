@@ -5,16 +5,12 @@ const AboutMe = () => {
   return (
     <>
       <div className="w-full">
-        {/* Name */}
-        <h1>Joshua Wang</h1>
-      </div>
-      <div className="w-full">
         {/* Name and profile picture */}
-        <div className='flex background-blur-sm mx-8vh mt-25vh p-1vh justify-evenly items-center'>
+        <div className='flex background-blur-sm mx-8vh p-1vh justify-evenly items-center'>
             <div className="text-lg bg-palette-pink p-1vh">
               Joshua Wang \n JojoTheWarrior
             </div>
-            <div className>
+            <div className="">
               <img src={temp_pfp} className="h-30vh"/>
             </div>
         </div>

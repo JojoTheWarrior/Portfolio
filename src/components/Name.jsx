@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import logo from '../assets/images/logo.png';
+import logo_bg from '../assets/images/logo_bg.png';
 
 const Name = () => {
     const [sliderValue, setSliderValue] = useState(50);
@@ -13,32 +15,26 @@ const Name = () => {
         <style> {`
             .slider {
                 -webkit-appearance: none;
-                width: 100%;
-                height: 15px;
-                background: #ddd;
+                height: 1vh;
+                background: white;
                 outline: none;
-                opacity: 0.7;
-                transition: opacity .2s;
+                opacity: 0.2;
             }
 
             .slider::-webkit-slider-thumb {
                 -webkit-appearance: none;
                 appearance: none;
-                width: 25px;
-                height: 25px;
-                background: transparent;
+                width: 5vw;
+                height: 15vh;
+                background: url(${logo}) no-repeat center center;
+                background-size: contain;
                 cursor: pointer;
                 position: relative;
             }
 
-            .slider::-webkit-slider-thumb::before {
-                content: '/';
-                font-size: 20px;
-                color: black;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+            .slider::-webkit-slider-thumb:hover {
+                background: url(${logo_bg}) no-repeat center center;
+                background-size: contain;
             }
 
             /* For Firefox */
