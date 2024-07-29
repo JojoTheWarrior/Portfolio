@@ -7,6 +7,7 @@ import Name from  './components/Name';
 import AboutMe from './components/AboutMe';
 import Background from "./components/Background";
 import Carousel from './components/Carousel';
+import Stats from './components/Stats';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
             <>
               <Name />
               <AboutMe />
-              <Carousel />
+              <Stats />
             </>
             } />
         </Routes>
