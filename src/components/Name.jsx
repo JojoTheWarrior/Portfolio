@@ -76,7 +76,7 @@ const Name = () => {
                 bottom: `${window.innerWidth * 104.29 / 1600}px`,
             }}
         />
-        {/* Joshua Wang / JojoTheWarrior */}
+        {/* Name and nickname */}
         <div className="relative w-full h-full flex justify-center z-10">
             <span 
                 className="absolute text-10vmin font-bold text-palette-blue z-20"
@@ -90,7 +90,7 @@ const Name = () => {
                     letterSpacing: '0.03763em'
                 }}
             >
-                Joshua Wang
+                Shuya Wang
             </span>
             <span 
                 className="absolute text-10vmin text-palette-blue z-20"
@@ -103,7 +103,7 @@ const Name = () => {
                     100% 0%)` 
                 }}
             >
-                JojoTheWarrior
+                BidMusician
             </span>
         </div>
     </div>
