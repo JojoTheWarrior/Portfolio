@@ -24,14 +24,20 @@ def get_duolingo_streak():
         chrome_options.add_argument("--disable-gpu")  # Disable GPU acceleration
         chrome_options.add_argument("window-size=1920x1080")  # Optional, can help with rendering
 
-        print("Fetching Duolingo streak...")
+        print("Fetching Duolingo stats...")
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
         driver.get('https://www.duolingo.com/profile/JojoTheWarrior')
-        time.sleep(7)
+        time.sleep(3.5)
+
         streak_element = driver.find_element(By.CSS_SELECTOR, 'h4.-TMd4')
         streak_text = streak_element.text
+
+        xp_parent_div = driver.find_element(By.XPATH, "//div[@class='_3eRJb' and .//div[@class='_3oUUc' and text()='Total XP']]")
+        xp_element = xp_parent_div.find_element(By.XPATH, ".//h4[@class='-TMd4']")
+        xp_text = xp_element.text
+
         driver.quit()
-        return jsonify({'streak': streak_text})
+        return jsonify({'streak': streak_text, 'xp': xp_text})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
