@@ -22,6 +22,12 @@ const Stats = () => {
         <div className="font-ubuntu flex justify-evenly items-center">
             <h1 className="text-4xl text-white">My Stats! {streak}</h1>
         </div>
+        {/* Cards */}
+        <div className="flex justify-evenly items-center">
+            <div className="background-white">
+                <div > </div>
+            </div>
+        </div>
 
         <div>
         {
