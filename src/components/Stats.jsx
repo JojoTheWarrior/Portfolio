@@ -7,12 +7,14 @@ import duo_xp from '../assets/images/duo_xp.svg';
 
 const Stats = () => {
     const [streak, setStreak] = useState(-1)
+    const [duoXP, setDuoXP] = useState(-1);
 
     useEffect(() => {
         const fetchStreak = async () => {
             try {
                 const response = await axios.get('http://127.0.0.1:5000/api/duolingo-streak');
                 setStreak(response.data.streak);
+                setDuoXP(response.data.xp);
             } catch (error){
                 console.log('Error fetching Duolingo streak:', error);
             }
@@ -38,20 +40,11 @@ const Stats = () => {
                         </div>
                         <div className="flex justify-start items-center">
                             <img className="h-16 w-16" src={duo_xp}/>
-                            <p>{streak == -1 ? "Loading " : `${streak} Day `} XP{streak == -1 ? "..." : ""}</p>
+                            <p>{duoXP == -1 ? "Loading " : `${duoXP} Total XP `} XP{duoXP == -1 ? "..." : ""}</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div>
-        {
-            streak != -1 ? 
-                <p>Streak: {streak}</p>
-                :
-                <p>Loading...</p>
-        }
         </div>
     </div>
   )
