@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import duolingo from '../assets/images/duolingo.jpg';
+import dmoj from '../assets/images/dmoj.jpg';
 
 const Stats = () => {
     const [streak, setStreak] = useState(-1)
@@ -25,7 +27,12 @@ const Stats = () => {
         {/* Cards */}
         <div className="flex justify-evenly items-center">
             <div className="background-white">
-                <div > </div>
+                <div className="flex"> 
+                    <img src={duolingo}></img>
+                    <div className="text-4xl font-black">
+
+                    </div>
+                </div>
             </div>
         </div>
 
