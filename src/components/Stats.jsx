@@ -3,6 +3,7 @@ import axios from 'axios';
 import duolingo from '../assets/images/duolingo.jpg';
 import dmoj from '../assets/images/dmoj.jpg';
 import duo_flame from '../assets/images/flame.svg';
+import duo_xp from '../assets/images/duo_xp.svg';
 
 const Stats = () => {
     const [streak, setStreak] = useState(-1)
@@ -28,12 +29,16 @@ const Stats = () => {
         {/* Cards */}
         <div className="flex justify-evenly items-center">
             <div className="bg-white rounded-xl p-4vh" style={{width: "500px;", height: "250px;"}}>
-                <div className="flex"> 
+                <div className="flex justify-center items-center"> 
                     <img className="rounded-xl h-48 w-48" src={duolingo}></img>
-                    <div className="text-4xl font-ubuntu flex-col font-black">
-                        <div className="flex align-center justify-center items-center">
+                    <div className="text-4xl font-ubuntu h-full flex-col justify-center font-black">
+                        <div className="flex justify-start items-center">
                             <img className="h-16 w-16" src={duo_flame}/>
                             <p>{streak == -1 ? "Loading " : `${streak} Day `} Streak{streak == -1 ? "..." : ""}</p>
+                        </div>
+                        <div className="flex justify-start items-center">
+                            <img className="h-16 w-16" src={duo_xp}/>
+                            <p>{streak == -1 ? "Loading " : `${streak} Day `} XP{streak == -1 ? "..." : ""}</p>
                         </div>
                     </div>
                 </div>
