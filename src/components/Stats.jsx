@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import duolingo from '../assets/images/duolingo.jpg';
 import dmoj from '../assets/images/dmoj.jpg';
+import 
 
 const Stats = () => {
     const [streak, setStreak] = useState(-1)
@@ -26,11 +27,13 @@ const Stats = () => {
         </div>
         {/* Cards */}
         <div className="flex justify-evenly items-center">
-            <div className="background-white">
+            <div className="background-white rounded-lg">
                 <div className="flex"> 
-                    <img src={duolingo}></img>
-                    <div className="text-4xl font-black">
-
+                    <img className="rounded-md" src={duolingo}></img>
+                    <div className="text-4xl flex font-black">
+                        <img src={flame}></img>
+                        <p>Day Streak<p/>
+                        <p>Total XP</p>
                     </div>
                 </div>
             </div>
