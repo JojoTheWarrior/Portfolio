@@ -53,16 +53,24 @@ def get_dmoj():
         print("Fetching DMOJ stats...")
         driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
         driver.get('https://dmoj.ca/user/JojoTheWarrior')
-        time.sleep(3.5)
+        time.sleep(1)
 
         path_element = driver.find_element(By.CSS_SELECTOR, '.rate-group svg path')
         d_attribute = path_element.get_attribute('d')
 
-        rating_element = driver.find_element(By.CSS_SELECTOR, '.rating.rate-master')
+        rating_element = driver.find_element(By.CSS_SELECTOR, '.rating')
         rating_value = rating_element.text
 
+        rating_classes = rating_element.get_attribute('class')
+        rating_color = "rgba(153,153,153,255)"
+
+        if "rate-master" in rating_classes:
+            rating_color = "rgba(250,177,4,255)"
+        elif "rate-grandmaster" in rating_classes:
+            rating_color = "rgba(230,0,0,255)"
+
         driver.quit()
-        return jsonify({'': streak_text, 'xp': xp_text})
+        return jsonify({'d_attribute': d_attribute, 'rating_value': rating_value, 'rating_color': rating_color})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

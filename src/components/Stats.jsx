@@ -7,7 +7,11 @@ import duo_xp from '../assets/images/duo_xp.svg';
 
 const Stats = () => {
     const [streak, setStreak] = useState(-1)
-    const [duoXP, setDuoXP] = useState(-1);
+    const [duoXP, setDuoXP] = useState(-1)
+
+    const [d, setD] = useState(-1)
+    const [rating, setRating] = useState(-1)
+    const [ratingColor, setRatingColor] = useState(-1)
 
     useEffect(() => {
         const fetchStreak = async () => {
