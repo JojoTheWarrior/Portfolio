@@ -26,13 +26,28 @@ const Stats = () => {
     <div className="w-full mt-4vh">
         {/* Title saying "My Stats!" */}
         <div className="font-ubuntu flex justify-evenly items-center">
-            <h1 className="text-4xl text-white">My Stats! {streak}</h1>
+            <h1 className="text-4xl text-white">My Stats!</h1>
         </div>
         {/* Cards */}
         <div className="flex justify-evenly items-center">
-            <div className="bg-white rounded-xl p-4vh" style={{width: "500px;", height: "250px;"}}>
-                <div className="flex justify-center items-center"> 
+            <div className="flex rounded-xl p-4vh" style={{width: "500px;", height: "250px;"}}>
+                {/* Duolingo */}
+                <div className="bg-white flex justify-center items-center m-4 p-4 rounded-xl"> 
                     <img className="rounded-xl h-48 w-48" src={duolingo}></img>
+                    <div className="text-4xl font-ubuntu h-full flex-col justify-center font-black">
+                        <div className="flex justify-start items-center">
+                            <img className="h-16 w-16" src={duo_flame}/>
+                            <p>{streak == -1 ? "Loading " : `${streak} Day `} Streak{streak == -1 ? "..." : ""}</p>
+                        </div>
+                        <div className="flex justify-start items-center">
+                            <img className="h-16 w-16" src={duo_xp}/>
+                            <p>{duoXP == -1 ? "Loading " : `${duoXP} Total XP `} XP{duoXP == -1 ? "..." : ""}</p>
+                        </div>
+                    </div>
+                </div>
+                {/* DMOJ */}
+                <div className="bg-white flex justify-center items-center m-4 p-4 rounded-xl"> 
+                    <img className="rounded-xl h-48 w-48" src={dmoj}></img>
                     <div className="text-4xl font-ubuntu h-full flex-col justify-center font-black">
                         <div className="flex justify-start items-center">
                             <img className="h-16 w-16" src={duo_flame}/>

@@ -40,6 +40,32 @@ def get_duolingo_streak():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/api/dmoj')
+def get_dmoj():
+    try:
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")  # Run Chrome in headless mode
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--disable-gpu")  # Disable GPU acceleration
+        chrome_options.add_argument("window-size=1920x1080")  # Optional, can help with rendering
+
+        print("Fetching DMOJ stats...")
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+        driver.get('https://dmoj.ca/user/JojoTheWarrior')
+        time.sleep(3.5)
+
+        path_element = driver.find_element(By.CSS_SELECTOR, '.rate-group svg path')
+        d_attribute = path_element.get_attribute('d')
+
+        rating_element = driver.find_element(By.CSS_SELECTOR, '.rating.rate-master')
+        rating_value = rating_element.text
+
+        driver.quit()
+        return jsonify({'': streak_text, 'xp': xp_text})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 if __name__ == '__main__':
 
     host = '127.0.0.1'
