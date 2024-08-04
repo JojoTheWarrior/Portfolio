@@ -5,6 +5,9 @@ import dmoj from '../assets/images/dmoj.jpg';
 import duo_flame from '../assets/images/flame.svg';
 import duo_xp from '../assets/images/duo_xp.svg';
 
+// change later
+const URL = "http://127.0.0.1:5000";
+
 const Stats = () => {
     const [streak, setStreak] = useState(-1)
     const [duoXP, setDuoXP] = useState(-1)
@@ -16,11 +19,21 @@ const Stats = () => {
     useEffect(() => {
         const fetchStreak = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:5000/api/duolingo-streak');
+                const response = await axios.get(`${URL}/api/duolingo-streak`);
                 setStreak(response.data.streak);
                 setDuoXP(response.data.xp);
             } catch (error){
                 console.log('Error fetching Duolingo streak:', error);
+            }
+        }
+        const fetchDMOJ = async () => {
+            try {
+                const response = await axios.get(`${URL}/api/dmoj`);
+                setD(response.data.d_attribute);
+                setRating(response.data.rating_value);
+                setRatingColor(response.data.rating_color);
+            } catch (error){
+                console.log('Error fetching DMOJ rating:', error)
             }
         }
         fetchStreak();
@@ -54,7 +67,7 @@ const Stats = () => {
                     <img className="rounded-xl h-48 w-48" src={dmoj}></img>
                     <div className="text-4xl font-ubuntu h-full flex-col justify-center font-black">
                         <div className="flex justify-start items-center">
-                            <img className="h-16 w-16" src={duo_flame}/>
+                            <circle cx="8" cy="8" r="7"></circle>
                             <p>{streak == -1 ? "Loading " : `${streak} Day `} Streak{streak == -1 ? "..." : ""}</p>
                         </div>
                         <div className="flex justify-start items-center">
