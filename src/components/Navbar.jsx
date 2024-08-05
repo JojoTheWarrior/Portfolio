@@ -8,7 +8,8 @@ const Navbar = () => {
         <nav className="fixed flex justify-between top-0 left-0 w-full backdrop-blur-2xl hover:backdrop-blur-3xl transition duration-250 z-80 p-1vh">
             {/* Logo */}
             <div className="flex w-full items-center content-center">
-                <img src={logo} className="h-15vh"/>
+                <h1 className="text-4xl font-bold animate-colorChange">Shuya</h1>
+                {/*<img src={logo} className="h-15vh"/>*/}
             </div>
 
             {/* Links */}

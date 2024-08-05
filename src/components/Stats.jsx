@@ -68,7 +68,7 @@ const Stats = () => {
                     <img className="rounded-xl h-48 w-48" src={dmoj}></img>
                     <div className="text-4xl font-ubuntu h-full flex-col justify-center font-black">
                         <div className="flex justify-start items-center">
-                            <svg style={{width: '1.2em', color:'rgba(230,0,0,255)'}} viewBox="0 0 16 16">
+                            <svg style={{width: '1.2em', fill: 'none', color:'rgba(230,0,0,255)'}} viewBox="0 0 16 16">
                                 <circle cx="8" cy="8" r="7" style={{color: `${ratingColor}`, strokeWidth: `3`}}></circle>
                             </svg>
                             <p>{streak == -1 ? "Loading " : `${streak} Day `} Streak{streak == -1 ? "..." : ""}</p>

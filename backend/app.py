@@ -7,6 +7,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 import time
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -75,8 +76,6 @@ def get_dmoj():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-
-    host = '127.0.0.1'
-    port = 5000
-    print(f"Flask app running on http://{host}:{port}")
-    app.run(host=host, port=port, debug=True)
+    port = int(os.environ.get("PORT", 8080))
+    print(f"Flask app running on http://0.0.0.0:{port}")
+    app.run(host='0.0.0.0', port=port, debug=True)
