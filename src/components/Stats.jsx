@@ -14,7 +14,7 @@ const Stats = () => {
 
     const [d, setD] = useState(-1)
     const [rating, setRating] = useState(-1)
-    const [ratingColor, setRatingColor] = useState(-1)
+    const [ratingColor, setRatingColor] = useState("rgba(153,153,153,255)")
 
     useEffect(() => {
         const fetchStreak = async () => {
