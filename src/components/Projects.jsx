@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
 import Project from "./Project.jsx";
+/* Project Images */
+import astral_adventure from "../assets/images/astral_adventure.png";
+
+
 
 const Projects = () => {
     const [view, setView] = useState("grid");
     const GridView = (
         <div className="flex w-full">
-            
+            <Project 
+                name="Astral Adventure" image={astral_adventure}
+                description="Fun and educational Processing game about an astronaut's adventure through space. Created by Joshua Wang and Brian Song, May 2022."
+            />
         </div>
     )
 
