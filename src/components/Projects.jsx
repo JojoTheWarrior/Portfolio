@@ -8,17 +8,6 @@ import processing from "../assets/images/processing.png";
 
 const Projects = () => {
     const [view, setView] = useState("grid");
-    const GridView = (
-        <div className="flex w-full">
-            <Project 
-                name="Astral Adventure" image={astral_adventure}
-                description="Fun and educational Processing game about an astronaut's adventure through space. Created by Joshua Wang and Brian Song, May 2022."
-                tools_list={[
-                    [processing, "Processing"],
-                ]}
-            />
-        </div>
-    )
 
     return (
         <div>
@@ -35,8 +24,15 @@ const Projects = () => {
                     Categorical View
                 </button>
             </div>
-            {
-                view=="grid" ? GridView : ""
+            {   
+                view=="grid" ? 
+                <div className="flex w-full">
+                    <Project name="Josh"/>
+                </div>
+                :
+                <div>
+                    {/* Categorical view */}
+                </div>
             }
         </div>
     )
