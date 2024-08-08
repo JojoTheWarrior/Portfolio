@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
+import Project from "./Project.jsx";
 
 const Projects = () => {
     const [view, setView] = useState("grid");
+    const GridView = (
+        <div className="flex w-full">
+            
+        </div>
+    )
 
     return (
         <div>
@@ -18,7 +24,6 @@ const Projects = () => {
                     Categorical View
                 </button>
             </div>
-
         </div>
     )
 }
