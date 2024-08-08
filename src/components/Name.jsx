@@ -90,7 +90,7 @@ const Name = () => {
                     letterSpacing: '0.03763em'
                 }}
             >
-                Shuya Wang
+                Joshua Wang
             </span>
             <span 
                 className="absolute text-10vmin text-palette-blue z-20"
@@ -103,7 +103,7 @@ const Name = () => {
                     100% 0%)` 
                 }}
             >
-                BidMusician
+                JojoTheWarrior
             </span>
         </div>
     </div>

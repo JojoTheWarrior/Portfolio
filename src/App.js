@@ -8,6 +8,7 @@ import AboutMe from './components/AboutMe';
 import Background from "./components/Background";
 import Carousel from './components/Carousel';
 import Stats from './components/Stats';
+import Projects from './components/Projects';
 
 function App() {
   return (
@@ -22,6 +23,11 @@ function App() {
               <AboutMe />
               <Stats />
             </>
+            } />
+            <Route path="/projects" element={
+              <>
+                <Projects />
+              </>
             } />
         </Routes>
       </div>
