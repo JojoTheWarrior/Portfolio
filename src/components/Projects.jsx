@@ -13,6 +13,9 @@ const Projects = () => {
             <Project 
                 name="Astral Adventure" image={astral_adventure}
                 description="Fun and educational Processing game about an astronaut's adventure through space. Created by Joshua Wang and Brian Song, May 2022."
+                tools_list={[
+                    [processing, "Processing"],
+                ]}
             />
         </div>
     )
@@ -32,6 +35,9 @@ const Projects = () => {
                     Categorical View
                 </button>
             </div>
+            {
+                view=="grid" ? GridView : ""
+            }
         </div>
     )
 }
