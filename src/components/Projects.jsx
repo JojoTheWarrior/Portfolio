@@ -3,7 +3,8 @@ import Project from "./Project.jsx";
 /* Project Images */
 import astral_adventure from "../assets/images/astral_adventure.png";
 
-
+/* Framework Images */
+import processing from "../assets/images/processing.png";
 
 const Projects = () => {
     const [view, setView] = useState("grid");
