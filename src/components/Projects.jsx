@@ -27,7 +27,7 @@ const Projects = () => {
             {   
                 view=="grid" ? 
                 <div className="flex w-full">
-                    <Project name="Josh"/>
+                    <Project name="Astral Adventure" image={astral_adventure}/>
                 </div>
                 :
                 <div>
