@@ -10,20 +10,15 @@ import Carousel from './components/Carousel';
 import Stats from './components/Stats';
 import Projects from './components/Projects';
 
-const NavbarWithRoute = () => {
-  const location = useLocation();
-  return <Navbar currentRoute={location.pathname} />;
-};
-
 function App() {
   return (
     <Router>
       <div>
         <Background />
-        <NavbarWithRoute />
         <Routes>
           <Route path="/" element={
             <>
+              <Navbar active="" />
               <Name />
               <AboutMe />
               <Stats />
@@ -31,6 +26,7 @@ function App() {
             } />
             <Route path="/projects" element={
               <>
+                <Navbar active="projects"/>
                 <Projects />
               </>
             } />

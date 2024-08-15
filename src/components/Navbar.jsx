@@ -14,12 +14,20 @@ const Navbar = ({active}) => {
             </div>
 
             {/* Links */}
-            <div className="text-palette-blue hover:text-palette-blue-25 w-full space-x-5vmin p-1vh flex items-center justify-center text-5vmin">
-                <a className={`hover:text-palette-blue font-pixeloid font-bold`}>About Me</a>
+            <div className="text-palette-blue hover:text-palette-blue-25 transition-all duration-300 ease-in-out w-full space-x-5vmin p-1vh flex items-center justify-center text-5vmin">
+                <Link to="/">
+                <a className={`${active=="" ? "text-palette-blue" : ""} hover:text-palette-blue font-pixeloid font-bold`}>About Me</a>
+                </Link>
                 <p className="text-palette-blue">/</p>
-                <a className="hover:text-palette-blue font-pixeloid font-bold">Projects</a>
+                <Link to={"/projects"}>
+                <a className={` ${active=="projects" ? "text-palette-blue" : ""}
+                                hover:text-palette-blue font-pixeloid font-bold`}>Projects</a>
+                </Link>
                 <p className="text-palette-blue">/</p>
-                <a className="hover:text-palette-blue font-pixeloid font-bold">Contact</a>
+                <Link to={"/contact"}>
+                <a className={` ${active=="contact" ? "text-palette-blue" : ""}
+                                hover:text-palette-blue font-pixeloid font-bold`}>Contact</a>
+                </Link>
             </div>
         </nav>
     )
