@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import logo from '../assets/images/logo.png';
-import logo_bg from '../assets/images/logo_bg.png';
+import slider_thumb from '../assets/images/slider_thumb.png';
 
 const Name = () => {
     const [sliderValue, setSliderValue] = useState(50);
@@ -26,22 +25,22 @@ const Name = () => {
                 height: 1vh;
                 background: white;
                 outline: none;
-                opacity: 0.7;
+                opacity: 1;
             }
 
             .slider::-webkit-slider-thumb {
                 -webkit-appearance: none;
                 appearance: none;
-                width: 5vw;
+                width: 15vw;
                 height: 15vh;
-                background: url(${logo}) no-repeat center center;
+                background: url(${slider_thumb}) no-repeat center center;
                 background-size: contain;
                 cursor: pointer;
                 position: relative;
             }
 
             .slider::-webkit-slider-thumb:hover {
-                background: url(${logo_bg}) no-repeat center center;
+                background: url(${slider_thumb}) no-repeat center center;
                 background-size: contain;
             }
 
