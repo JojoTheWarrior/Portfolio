@@ -37,7 +37,9 @@ module.exports = {
       fontFamily: {
         'ubuntu': ['Ubuntu', 'sans-serif'],
         'pixeloid': ['Pixeloid', 'sans-serif'],
-        'saturday-moon': ['Saturday Moon', 'sans-serif']
+        'saturday-moon': ['Saturday Moon', 'sans-serif'],
+        'cirque-electrique': ['Cirque Electrique', 'sans-serif'],
+        'undertale': ['Undertale', 'sans-serif']
       },
       keyframes: {
         colorChange: {

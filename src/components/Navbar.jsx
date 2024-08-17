@@ -79,19 +79,27 @@ const Navbar = ({active}) => {
                 <Link to="/">
                     <div className="cornerLight1">
                     <div className="cornerLight2 px-4">
-                    <a className={`${active=="" ? "text-mcpt-magenta" : ""} hover:text-mcpt-magenta font-pixeloid font-bold`}>About Me</a>
+                    <a className={`${active=="" ? "text-mcpt-magenta" : "text-mcpt-sangria"} hover:text-mcpt-magenta font-undertale font-bold`}>About Me</a>
                     </div>
                     </div>
                 </Link>
-                <p className="text-mcpt-magenta">/</p>
+                <p className="text-mcpt-sangria">/</p>
                 <Link to={"/projects"}>
-                    <a className={` ${active=="projects" ? "text-mcpt-magenta" : ""}
-                                hover:text-mcpt-magenta font-pixeloid font-bold`}>Projects</a>
+                    <div className="cornerLight1">
+                    <div className="cornerLight2 px-4">
+                    <a className={` ${active=="projects" ? "text-mcpt-magenta" : "text-mcpt-sangria"}
+                                hover:text-mcpt-magenta font-undertale font-bold`}>Projects</a>
+                    </div>
+                    </div>
                 </Link>
-                <p className="text-mcpt-magenta">/</p>
+                <p className="text-mcpt-sangria">/</p>
                 <Link to={"/contact"}>
-                    <a className={` ${active=="contact" ? "text-mcpt-magenta" : ""}
-                                hover:text-mcpt-magenta font-pixeloid font-bold`}>Contact</a>
+                    <div className="cornerLight1">
+                    <div className="cornerLight2 px-4">
+                    <a className={` ${active=="contact" ? "text-mcpt-magenta" : "text-mcpt-sangria"}
+                                hover:text-mcpt-magenta font-undertale font-bold`}>Contact</a>
+                    </div>
+                    </div>
                 </Link>
             </div>
         </nav>
