@@ -14,43 +14,48 @@ const Navbar = ({active}) => {
             }
 
             .cornerLight2::before,
-            .cornerLight2::after,
+            .cornerLight2::after {
+                content: '';
+                position: absolute;
+                background-color: white;
+                width: 0;
+                height: 0;
+                top: 0;
+                right: 0;
+                transition: all 0.3s ease-in-out;
+            }
             .cornerLight1::before,
             .cornerLight1::after {
                 content: '';
                 position: absolute;
                 background-color: white;
+                width: 0;
+                height: 0;
+                bottom: 0;
+                left: 0;
                 transition: all 0.3s ease-in-out;
             }
 
             /* Top border */
             .cornerLight2:hover::before {
-                top: 0;
-                right: 0;
                 height: 2px; /* Thickness of the border */
                 width: 20px; /* Length of the top border */
             }
 
             /* Right border */
             .cornerLight2:hover::after {
-                top: 0;
-                right: 0;
                 width: 2px; /* Thickness of the border */
                 height: 20px; /* Length of the right border */
             }
 
             /* Bottom border */
             .cornerLight1:hover::before {
-                bottom: 0;
-                left: 0;
                 height: 2px; /* Thickness of the border */
                 width: 20px; /* Length of the top border */
             }
 
             /* Left border */
             .cornerLight1:hover::after {
-                bottom: 0;
-                left: 0;
                 width: 2px; /* Thickness of the border */
                 height: 20px; /* Length of the right border */
             }
@@ -61,7 +66,7 @@ const Navbar = ({active}) => {
             <div className="flex w-full items-center content-center">
                 <Link to="/">
                     <div className="cornerLight1">
-                    <div className="cornerLight2 px-4 py-2 transition duration-250">
+                    <div className="cornerLight2 px-4 py-2">
                         <GlitchText $text='Joshua' className="font-black text-4xl" style={{ color: '#000' }} />
                     </div>
                     </div>
@@ -70,9 +75,13 @@ const Navbar = ({active}) => {
             </div>
 
             {/* Links */}
-            <div className="text-palette-blue hover:text-palette-blue-25 transition-all duration-300 ease-in-out w-full space-x-5vmin p-1vh flex items-center justify-center text-5vmin">
+            <div className="text-palette-blue whitespace-nowrap hover:text-palette-blue-25 transition-all duration-300 ease-in-out w-full space-x-5vmin flex items-center justify-center text-5vmin">
                 <Link to="/">
+                    <div className="cornerLight1">
+                    <div className="cornerLight2 px-4">
                     <a className={`${active=="" ? "text-palette-blue" : ""} hover:text-palette-blue font-pixeloid font-bold`}>About Me</a>
+                    </div>
+                    </div>
                 </Link>
                 <p className="text-palette-blue">/</p>
                 <Link to={"/projects"}>
