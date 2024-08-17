@@ -1,12 +1,11 @@
 import React from 'react';
+import GlitchText from '@johnn-e/react-glitch-text';
 
 const HomePage = () => {
     return (
     <div>
-        <div className="fire">
-            <h1 className="burn">Joshua</h1>
-            <hr></hr>
-            <h1 className="burn">Wang</h1>
+        <div className="text-4xl">
+            <GlitchText $text='Joshua' style={{ color: '#000', fontSize: "200px" }} $colorA="#ffbe0b" $colorB="#123abc" />
         </div>
     </div>
   )
