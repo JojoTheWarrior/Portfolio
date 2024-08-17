@@ -17,12 +17,14 @@ function App() {
       <div>
         <Background />
         <Routes>
-          <Route path="/" element={
+          {/* homepage in development */}
+          <Route path="/homepage" element={
             <>
               <HomePage />
             </>
           } />
-          <Route path="/aboutme" element={
+          
+          <Route path="/" element={
             <>
               <Navbar active="" />
               <Name />
