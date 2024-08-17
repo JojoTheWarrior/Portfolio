@@ -75,23 +75,23 @@ const Navbar = ({active}) => {
             </div>
 
             {/* Links */}
-            <div className="text-palette-blue whitespace-nowrap hover:text-palette-blue-25 transition-all duration-300 ease-in-out w-full space-x-5vmin flex items-center justify-center text-5vmin">
+            <div className="text-mcpt-magenta whitespace-nowrap hover:text-mcpt-magenta-25 transition-all duration-300 ease-in-out w-full space-x-5vmin flex items-center justify-center text-5vmin">
                 <Link to="/">
                     <div className="cornerLight1">
                     <div className="cornerLight2 px-4">
-                    <a className={`${active=="" ? "text-palette-blue" : ""} hover:text-palette-blue font-pixeloid font-bold`}>About Me</a>
+                    <a className={`${active=="" ? "text-mcpt-magenta" : ""} hover:text-mcpt-magenta font-pixeloid font-bold`}>About Me</a>
                     </div>
                     </div>
                 </Link>
-                <p className="text-palette-blue">/</p>
+                <p className="text-mcpt-magenta">/</p>
                 <Link to={"/projects"}>
-                    <a className={` ${active=="projects" ? "text-palette-blue" : ""}
-                                hover:text-palette-blue font-pixeloid font-bold`}>Projects</a>
+                    <a className={` ${active=="projects" ? "text-mcpt-magenta" : ""}
+                                hover:text-mcpt-magenta font-pixeloid font-bold`}>Projects</a>
                 </Link>
-                <p className="text-palette-blue">/</p>
+                <p className="text-mcpt-magenta">/</p>
                 <Link to={"/contact"}>
-                    <a className={` ${active=="contact" ? "text-palette-blue" : ""}
-                                hover:text-palette-blue font-pixeloid font-bold`}>Contact</a>
+                    <a className={` ${active=="contact" ? "text-mcpt-magenta" : ""}
+                                hover:text-mcpt-magenta font-pixeloid font-bold`}>Contact</a>
                 </Link>
             </div>
         </nav>

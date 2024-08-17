@@ -18,6 +18,9 @@ module.exports = {
         },
         'palette-lapis': '#6C5EFF',
 
+        'mcpt-magenta': '#b6003a',
+        'mcpt-sangria': '#7a0027',
+
         'button-light-blue': '#5ebaff',
         'button-lighter-blue': '#d2ecff',
         'button-dark-blue': '#1100d0',
@@ -33,7 +36,8 @@ module.exports = {
       },
       fontFamily: {
         'ubuntu': ['Ubuntu', 'sans-serif'],
-        'pixeloid': ['Pixeloid', 'sans-serif']
+        'pixeloid': ['Pixeloid', 'sans-serif'],
+        'saturday-moon': ['Saturday Moon', 'sans-serif']
       },
       keyframes: {
         colorChange: {
