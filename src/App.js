@@ -9,6 +9,7 @@ import Background from "./components/Background";
 import Carousel from './components/Carousel';
 import Stats from './components/Stats';
 import Projects from './components/Projects';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
@@ -17,6 +18,11 @@ function App() {
         <Background />
         <Routes>
           <Route path="/" element={
+            <>
+              <HomePage />
+            </>
+          } />
+          <Route path="/aboutme" element={
             <>
               <Navbar active="" />
               <Name />
