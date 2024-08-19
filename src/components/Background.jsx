@@ -3,7 +3,15 @@ import React, { useRef, useEffect, useState } from 'react'
 
 const Background = () => {
   const canvasRef = useRef(null);
-  let scroll = 0
+  let scroll = 0;
+
+  // initializing stars
+  const N = 50
+  const stars = Array.from({ length: 2 }, () => 
+    Array.from({ length: N }, () => [getRandomInt(canvas.width), getRandomInt(canvas.height)])
+  );
+
+  const getRandomInt = (max) => Math.floor(Math.random() * max);
 
   useEffect(() => {    
     // initializing canvas
@@ -11,14 +19,6 @@ const Background = () => {
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
-    const getRandomInt = (max) => Math.floor(Math.random() * max);
-
-    // initializing stars
-    const N = 50
-    const stars = Array.from({ length: 2 }, () => 
-      Array.from({ length: N }, () => [getRandomInt(canvas.width), getRandomInt(canvas.height)])
-    );
 
     const draw = (ctx) => {
       // black background

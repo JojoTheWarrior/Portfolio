@@ -48,8 +48,12 @@ code {
 @font-face {
     font-family: 'Undertale';
     src: url("./assets/fonts/Undertale.ttf") format('truetype');
-    font-weight: 400;
+    font-weight: 1000;
     font-style: normal;
+}
+
+.tracking-undertale {
+    letter-spacing: -0.2em;
 }
 
 :root {

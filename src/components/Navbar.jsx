@@ -1,11 +1,40 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
 import logo_bg from '../assets/images/logo_bg.png';
 import GlitchText from '@johnn-e/react-glitch-text';
 
 const Navbar = ({active}) => {
-    console.log("active", active);
+    const glitchRef = useRef(null);
+
+    useEffect(() => {
+        window.PowerGlitch.glitch(glitchRef.current, {
+            playMode: 'always',
+            createContainers: true,
+            hideOverflow: true,
+            timing: {
+              duration: 2000,
+              easing: 'ease-in-out',
+            },
+            glitchTimeSpan: {
+              start: 0.1,
+              end: 0.3,
+            },
+            shake: {
+              velocity: 15,
+              amplitudeX: 0.2,
+              amplitudeY: 0.2,
+            },
+            slice: {
+              count: 6,
+              velocity: 10,
+              minHeight: 0.02,
+              maxHeight: 0.15,
+              hueRotate: true,
+            },
+        });
+    }, []);
+
     return (
         <>
         <style>{`
@@ -65,9 +94,9 @@ const Navbar = ({active}) => {
             {/* Logo */}
             <div className="flex w-full items-center content-center">
                 <Link to="/">
-                    <div className="cornerLight1">
+                    <div className="cornerLight1" ref={glitchRef}>
                     <div className="cornerLight2 px-4 py-2">
-                        <GlitchText $text='Joshua' className="font-black text-4xl" style={{ color: '#000' }} />
+                        <GlitchText $text='Joshua' className="font-mcpt-magenta text-4xl" style={{ color: 'rgba(0,0,0,0)', fontSize: '100px', lineHeight: '100px' }} />
                     </div>
                     </div>
                 </Link>
@@ -79,7 +108,7 @@ const Navbar = ({active}) => {
                 <Link to="/">
                     <div className="cornerLight1">
                     <div className="cornerLight2 px-4">
-                    <a className={`${active=="" ? "text-mcpt-magenta" : "text-mcpt-sangria"} hover:text-mcpt-magenta font-undertale font-bold`}>About Me</a>
+                    <a className={`${active=="" ? "text-mcpt-magenta" : "text-mcpt-sangria"} hover:text-mcpt-magenta font-ubuntu font-bold`}>About Me</a>
                     </div>
                     </div>
                 </Link>
@@ -88,7 +117,7 @@ const Navbar = ({active}) => {
                     <div className="cornerLight1">
                     <div className="cornerLight2 px-4">
                     <a className={` ${active=="projects" ? "text-mcpt-magenta" : "text-mcpt-sangria"}
-                                hover:text-mcpt-magenta font-undertale font-bold`}>Projects</a>
+                                hover:text-mcpt-magenta font-ubuntu font-bold`}>Projects</a>
                     </div>
                     </div>
                 </Link>
@@ -97,7 +126,7 @@ const Navbar = ({active}) => {
                     <div className="cornerLight1">
                     <div className="cornerLight2 px-4">
                     <a className={` ${active=="contact" ? "text-mcpt-magenta" : "text-mcpt-sangria"}
-                                hover:text-mcpt-magenta font-undertale font-bold`}>Contact</a>
+                                hover:text-mcpt-magenta font-ubuntu font-bold`}>Contact</a>
                     </div>
                     </div>
                 </Link>
