@@ -26,13 +26,13 @@ const Background = () => {
 
       stars[0].forEach((star) => {
         ctx.beginPath();
-        ctx.arc(star[0], Math.abs((star[1] + 10*scroll + 69420*1000) % canvas.height), 5, 0, 2*Math.PI)
+        ctx.arc(star[0], Math.abs((star[1] + 10*scroll) % canvas.height), 5, 0, 2*Math.PI)
         ctx.fillStyle = 'white';
         ctx.fill();
       });
       stars[1].forEach((star) => {
         ctx.beginPath();
-        ctx.arc(star[0], Math.abs((star[1] + 5*scroll + 69420*1000) % canvas.height), 5, 0, 2*Math.PI)
+        ctx.arc(star[0], Math.abs((star[1] + 5*scroll) % canvas.height), 5, 0, 2*Math.PI)
         ctx.fillStyle = 'white';
         ctx.fill();
       });
@@ -63,14 +63,15 @@ const Background = () => {
       stars[0].forEach((star) => {
         star[1] += 2;
         if (star[1] > canvas.height){
-          star[1] = -10;
+          star[1] = -scroll;
           star[0] = getRandomInt(canvas.width);
+          console.log(canvas.height);
         }
       });
       stars[1].forEach((star) => {
         star[1] += 1;
         if (star[1] > canvas.height){
-          star[1] = -10;
+          star[1] = -scroll;
           star[0] = getRandomInt(canvas.width);
         }
       });
