@@ -55,6 +55,8 @@ const Background = () => {
     // handling scroll
     const handleScroll = (event) => {
       scroll += event.deltaY;
+      if (scroll < 0) scroll += canvas.height;
+      if (scroll > canvas.height) scroll -= canvas.height;
     }
     window.addEventListener('wheel', handleScroll);
 
@@ -62,16 +64,16 @@ const Background = () => {
     const starsInterval = setInterval(() =>{
       stars[0].forEach((star) => {
         star[1] += 2;
-        if (star[1] > canvas.height){
-          star[1] = -scroll;
+        if (star[1]+10*scroll > canvas.height){
+          star[1] = -10*scroll;
           star[0] = getRandomInt(canvas.width);
           console.log(canvas.height);
         }
       });
       stars[1].forEach((star) => {
         star[1] += 1;
-        if (star[1] > canvas.height){
-          star[1] = -scroll;
+        if (star[1]+5*scroll > canvas.height){
+          star[1] = -5*scroll;
           star[0] = getRandomInt(canvas.width);
         }
       });
