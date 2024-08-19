@@ -5,6 +5,10 @@ import astral_adventure from "../assets/images/astral_adventure.png";
 
 /* Framework Images */
 import processing from "../assets/images/processing.png";
+import css from "../assets/images/css.png";
+import js from "../assets/images/javascript.png";
+import flask from "../assets/images/flask.png";
+import google from "../assets/images/google.png";
 
 const Projects = () => {
     const [view, setView] = useState("grid");
@@ -30,7 +34,11 @@ const Projects = () => {
             {   
                 view=="grid" ? 
                 <div className="flex w-full">
-                    <Project name="Astral Adventure" image={astral_adventure}/>
+                    <Project name="Astral Adventure" image={astral_adventure}
+                    tools_list={[
+                        { "image": processing, "caption": "processing" },
+                        { "image": css, "caption": "css" },
+                    ]}/>
                 </div>
                 :
                 <div>
