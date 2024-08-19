@@ -5,20 +5,19 @@ const Background = () => {
   const canvasRef = useRef(null);
   let scroll = 0;
 
-  // initializing stars
-  const N = 50
-  const stars = Array.from({ length: 2 }, () => 
-    Array.from({ length: N }, () => [getRandomInt(canvas.width), getRandomInt(canvas.height)])
-  );
-
-  const getRandomInt = (max) => Math.floor(Math.random() * max);
-
   useEffect(() => {    
     // initializing canvas
     const canvas = canvasRef.current;
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+
+    // initializing stars
+    const getRandomInt = (max) => Math.floor(Math.random() * max);
+    const N = 50;
+    const stars = Array.from({ length: 2 }, () => 
+      Array.from({ length: N }, () => [getRandomInt(canvas.width), getRandomInt(canvas.height)])
+    );
 
     const draw = (ctx) => {
       // black background
@@ -27,13 +26,13 @@ const Background = () => {
 
       stars[0].forEach((star) => {
         ctx.beginPath();
-        ctx.arc(star[0], Math.abs((star[1] + 10*scroll) % canvas.height), 5, 0, 2*Math.PI)
+        ctx.arc(star[0], Math.abs((star[1] + 10*scroll + 69420*1000) % canvas.height), 5, 0, 2*Math.PI)
         ctx.fillStyle = 'white';
         ctx.fill();
       });
       stars[1].forEach((star) => {
         ctx.beginPath();
-        ctx.arc(star[0], Math.abs((star[1] + 5*scroll) % canvas.height), 5, 0, 2*Math.PI)
+        ctx.arc(star[0], Math.abs((star[1] + 5*scroll + 69420*1000) % canvas.height), 5, 0, 2*Math.PI)
         ctx.fillStyle = 'white';
         ctx.fill();
       });
@@ -55,13 +54,32 @@ const Background = () => {
 
     // handling scroll
     const handleScroll = (event) => {
-      scroll += event.deltaY
+      scroll += event.deltaY;
     }
     window.addEventListener('wheel', handleScroll);
+
+    // part that always runs to slowly move stars down
+    const starsInterval = setInterval(() =>{
+      stars[0].forEach((star) => {
+        star[1] += 2;
+        if (star[1] > canvas.height){
+          star[1] = -10;
+          star[0] = getRandomInt(canvas.width);
+        }
+      });
+      stars[1].forEach((star) => {
+        star[1] += 1;
+        if (star[1] > canvas.height){
+          star[1] = -10;
+          star[0] = getRandomInt(canvas.width);
+        }
+      });
+    }, 10);
 
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('wheel', handleScroll);
+      clearInterval(starsInterval);
     }
   }, [])
 

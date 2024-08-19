@@ -6,8 +6,11 @@ const Project = ({name, image, description, tools_list}) => {
         <h1 className="font-pixeloid font-bold text-center text-4xl">{name}</h1>
         <hr className="border-t-4 rounded-lg border-button-dark-blue"/>
         <img className="drop-shadow-glow rounded-3xl p-4" src={image}></img>
+        {/* Tools List */}
         <div className="flex">
-            <h1 className="text-xl">Tools:</h1>
+            {
+              tools_list.map((tool, index) =>)
+            }
         </div>
     </div>
   )

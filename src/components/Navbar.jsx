@@ -8,6 +8,32 @@ const Navbar = ({active}) => {
     const glitchRef = useRef(null);
 
     useEffect(() => {
+        // for navbar elements to glitch on hover
+        const glitchElements = document.querySelectorAll('.glitchElement');
+
+        glitchElements.forEach((element) => {
+            window.PowerGlitch.glitch(element, {
+                "playMode": "hover",
+                "timing": {
+                  "duration": 1950
+                },
+                "glitchTimeSpan": {
+                  "start": 0.2,
+                  "end": 0.7
+                },
+                "shake": {
+                  "velocity": 60,
+                  "amplitudeX": 0.29,
+                  "amplitudeY": 0.43
+                },
+                "pulse": {
+                  "scale": 2
+                }
+              }
+            );
+        });
+        
+        // for name element to always glitch
         window.PowerGlitch.glitch(glitchRef.current, {
             playMode: 'always',
             createContainers: true,
@@ -108,7 +134,7 @@ const Navbar = ({active}) => {
                 <Link to="/">
                     <div className="cornerLight1">
                     <div className="cornerLight2 px-4">
-                    <a className={`${active=="" ? "text-mcpt-magenta" : "text-mcpt-sangria"} hover:text-mcpt-magenta font-ubuntu font-bold`}>About Me</a>
+                    <a className={`glitchElement ${active=="" ? "text-mcpt-magenta" : "text-mcpt-sangria"} hover:text-mcpt-magenta font-ubuntu font-bold`}>About Me</a>
                     </div>
                     </div>
                 </Link>
@@ -116,7 +142,7 @@ const Navbar = ({active}) => {
                 <Link to={"/projects"}>
                     <div className="cornerLight1">
                     <div className="cornerLight2 px-4">
-                    <a className={` ${active=="projects" ? "text-mcpt-magenta" : "text-mcpt-sangria"}
+                    <a className={`glitchElement ${active=="projects" ? "text-mcpt-magenta" : "text-mcpt-sangria"}
                                 hover:text-mcpt-magenta font-ubuntu font-bold`}>Projects</a>
                     </div>
                     </div>
@@ -125,7 +151,7 @@ const Navbar = ({active}) => {
                 <Link to={"/contact"}>
                     <div className="cornerLight1">
                     <div className="cornerLight2 px-4">
-                    <a className={` ${active=="contact" ? "text-mcpt-magenta" : "text-mcpt-sangria"}
+                    <a className={`glitchElement ${active=="contact" ? "text-mcpt-magenta" : "text-mcpt-sangria"}
                                 hover:text-mcpt-magenta font-ubuntu font-bold`}>Contact</a>
                     </div>
                     </div>
