@@ -23,7 +23,7 @@ const Name = () => {
             .slider {
                 -webkit-appearance: none;
                 height: 1vh;
-                background: white;
+                background: none;
                 outline: none;
                 opacity: 1;
             }
@@ -69,9 +69,9 @@ const Name = () => {
             max="100"
             value={sliderValue}
             onChange={handleSliderChange}
-            className="absolute slider bg-gray-300 outline-none z-20"
+            className="absolute slider bg-none outline-none z-20"
             style={{
-                width: `${window.innerWidth * 555.492 / 1600}px`,
+                width: `${window.innerWidth * 800 / 1600}px`,
                 bottom: `${window.innerWidth * 104.29 / 1600}px`,
             }}
         />
