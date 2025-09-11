@@ -54,7 +54,7 @@ const Background = () => {
 
     // handling scroll
     const handleScroll = (event) => {
-      scroll += event.deltaY;
+      scroll += event.deltaY * 0.1;
       if (scroll < 0) scroll += canvas.height;
       if (scroll > canvas.height) scroll -= canvas.height;
     }

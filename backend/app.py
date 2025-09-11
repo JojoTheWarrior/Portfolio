@@ -16,6 +16,9 @@ streak_text = -1
 
 @app.route('/api/duolingo-streak')
 def get_duolingo_streak():
+    # this is a quick fix
+    jsonify({'streak': 1001, 'xp': xp_text})
+
     try:
         chrome_options = Options()
         chrome_options.add_argument("--headless")  # Run Chrome in headless mode
