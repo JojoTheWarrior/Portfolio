@@ -1,24 +1,12 @@
-import React from 'react'
-import temp_pfp from '../assets/images/temp_pfp.jpeg';
-
-const AboutMe = () => {
-  return (
-    <>
-      <div className="w-full">
-        {/* Name and profile picture */}
-        <div className='font-ubuntu flex background-blur-sm mx-8vh p-1vh justify-evenly items-center'>
-            <div className="text-white p-1vh backdrop-blur-lg">
-              <h1 className="text-4xl">Hi, I'm <b>Joshua</b>!</h1>
-              <p className="text-2xl">I enjoy <b className="text-palette-lapis">quant finance</b>, <b className="text-palette-lapis">software development</b>, and <b className="text-palette-lapis">mathematics.</b></p>
-              <p className="text-2xl">I'm a first-year <b className="text-palette-lapis">Computer Science</b> student at the University of Waterloo.</p>
-            </div>
-            <div className="">
-              <img src={temp_pfp} className="h-30vh"/>
-            </div>
-        </div>
-      </div>
-    </>
-  )
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { links } from '../data/content';
+import { ExternalLink, PageHeading, usePageTitle } from './Shared';
+export default function AboutMe() {
+  usePageTitle('About');
+  return <div className="page about-page"><PageHeading number="03" title="A little about me">Joshua, or Jojo pretty much everywhere online.</PageHeading>
+    <div className="about-layout"><div className="about-prose"><p>I’m a computer science student at the University of Waterloo. I’m interested in quant trading and math research, and I like having a good problem to think about.</p><p>A lot of my projects start with friends: a hackathon idea, something we wish existed, or a question that gets a bit out of hand. Outside of that, I started Waterloo’s Avalon Club, so there’s usually a game to be played too.</p><p>I also post math puzzles on <ExternalLink href={links.linkedin}>LinkedIn</ExternalLink> when I find something fun to share.</p></div><aside className="now-note"><p className="eyebrow"><span className="status-dot" /> lately / september 2026</p><ul><li>Working on sensor data and machine learning at Huawei.</li><li>Helping build the algo competition at Waterloo Quant Club.</li><li>Working on <Link to="/projects/syllavise">Syllavise ↗</Link> with my roommates.</li><li>Sitting in on algorithms and complexity (CS 860).</li></ul></aside></div>
+    <section className="milestones" aria-labelledby="milestones-title"><div className="section-heading"><h2 id="milestones-title"><span className="section-index">a few along the way</span> Contests & other good memories</h2></div><p className="muted">I’ve spent a fair bit of time on programming and math contests. A few highlights:</p><dl className="milestone-list"><div><dt>2026</dt><dd><Link to="/projects/kingdom">HackMIT <span>· Cognition sponsor prize, with Kingdom</span> ↗</Link></dd></div><div><dt>2025</dt><dd>Waterloo Local ICPC <span>· 3rd place, winter contest</span></dd></div><div><dt>2025</dt><dd>Canadian Computing Competition <span>· 75/75, Senior</span></dd></div><div><dt>2024</dt><dd>Canadian Computing Olympiad <span>· silver medal, 7th place</span></dd></div><div><dt>2024</dt><dd><Link to="/projects/chatgpme">Hack the North <span>· finalist, with ChatGPMe</span> ↗</Link></dd></div><div><dt>2021–24</dt><dd>AIME <span>· qualified four times</span></dd></div><div><dt>also</dt><dd>USACO Platinum <span>· and a lot of practice problems</span></dd></div></dl></section>
+    <section className="about-contact"><p className="eyebrow">keep in touch</p><h2>Always down to talk.</h2><p>Especially if you have a good puzzle.</p><a className="contact-email" href={links.email}>j2975wan@uwaterloo.ca ↗</a><div className="inline-links"><ExternalLink href={links.linkedin}>LinkedIn</ExternalLink><ExternalLink href={links.github}>GitHub</ExternalLink><ExternalLink href={links.codeforces}>Codeforces</ExternalLink><ExternalLink href={links.dmoj}>DMOJ</ExternalLink></div></section>
+  </div>;
 }
-
-export default AboutMe; 

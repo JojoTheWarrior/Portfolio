@@ -1,61 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body {
-  
-}
-
-code {
-  
-}
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url("./assets/fonts/Ubuntu-Regular.ttf") format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Ubuntu';
-    src: url("./assets/fonts/Ubuntu-Bold.ttf") format('truetype');
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Pixeloid';
-    src: url("./assets/fonts/PixeloidMono.ttf") format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Saturday Moon';
-    src: url("./assets/fonts/SaturdayMoon.ttf") format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Cirque Electrique';
-    src: url("./assets/fonts/CirqueElectrique.ttf") format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Undertale';
-    src: url("./assets/fonts/Undertale.ttf") format('truetype');
-    font-weight: 1000;
-    font-style: normal;
-}
-
-.tracking-undertale {
-    letter-spacing: -0.2em;
-}
-
+@font-face { font-family: Ubuntu; src: url('./assets/fonts/Ubuntu-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Ubuntu; src: url('./assets/fonts/Ubuntu-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: Pixeloid; src: url('./assets/fonts/PixeloidMono.ttf') format('truetype'); font-weight: 400; font-display: swap; }
 :root {
-    --palette-blue: 11, 0, 128;
+  color-scheme: dark;
+  --bg: #09090e; --surface: #101017; --text: #eae7ee; --muted: #a19ba9; --quiet: #85808f;
+  --line: #2b2532; --magenta: #b6003a; --pink: #f06b95; --lapis: #9b8dff; --blue: #0b0080;
+  font-family: Ubuntu, sans-serif; font-synthesis: none; background: var(--bg); color: var(--text);
 }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input { font: inherit; }
+button, a, input { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; color: inherit; }
+a { color: inherit; text-decoration: none; }
+p { line-height: 1.75; }
+h1, h2, h3, p { margin-top: 0; }
+img { display: block; max-width: 100%; }
+::selection { background: #7a0027; color: white; }
+:focus-visible { outline: 2px solid var(--pink); outline-offset: 6px; }

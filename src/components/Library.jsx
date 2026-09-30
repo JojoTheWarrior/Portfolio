@@ -1,0 +1,15 @@
+import React, { useState } from 'react';
+import { algorithms, collections, links } from '../data/content';
+import { ExternalLink, PageHeading, usePageTitle } from './Shared';
+const categories = ['All', 'Graphs', 'Data structures', 'Geometry', 'Math', 'Strings'];
+export default function Library() {
+  usePageTitle('Algorithm library');
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('All');
+  const filtered = algorithms.filter(item => (category === 'All' || item.category === category) && `${item.name} ${item.description} ${item.source}`.toLowerCase().includes(query.trim().toLowerCase()));
+  return <div className="page library-page"><PageHeading number="02" title="The algorithm shelf">My ICPC code and notes, gathered into one place. Mostly C++. Always a work in progress.</PageHeading><div className="library-topline"><span className="eyebrow">{algorithms.length} implementations / 5 repos</span><a className="quiet-link" href="/algorithm-library.md" download>download the index ↓</a></div>
+    <div className="library-controls"><label className="search-box"><span aria-hidden="true">⌕</span><span className="sr-only">Search algorithms</span><input type="search" placeholder="Find an algorithm…" value={query} onChange={event => setQuery(event.target.value)} /></label><div className="filter-list" aria-label="Filter by topic">{categories.map(item => <button key={item} type="button" aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}</div></div>
+    <p className="result-count" role="status">{filtered.length} {filtered.length === 1 ? 'entry' : 'entries'}{category !== 'All' ? ` in ${category.toLowerCase()}` : ''}</p><div className="algorithm-list">{filtered.map(item => <a className="algorithm-row" href={item.href} key={item.name} target="_blank" rel="noreferrer"><span className="algorithm-category">{item.category}</span><span className="algorithm-copy"><h2>{item.name}</h2><p>{item.description}</p></span><span className="algorithm-source">{item.source}<span aria-hidden="true">↗</span></span></a>)}{filtered.length === 0 && <div className="empty-state"><h2>No matches this time.</h2><p>Try another term, or start with the whole shelf.</p><button className="text-link" onClick={() => { setQuery(''); setCategory('All'); }}>clear filters ↗</button></div>}</div>
+    <section className="collections"><p className="eyebrow">the rest of the notebook</p><div className="collection-grid">{collections.map(item => <div key={item.name}><h2><ExternalLink href={item.href}>{item.name}</ExternalLink></h2><p>{item.description}</p></div>)}</div><p className="library-footnote">These are practice implementations and collected references, not a polished package. Original code and any source credits live in the linked repos.</p></section><div className="elsewhere"><span className="eyebrow">practice profiles</span><ExternalLink href={links.codeforces}>Codeforces</ExternalLink><ExternalLink href={links.dmoj}>DMOJ</ExternalLink></div>
+  </div>;
+}
